@@ -1,12 +1,11 @@
 const express = require('express')
 const router = express.Router()
+const { getTours, theTourId, checkID } = require('../controllers/toursController')
 
-router.get('/', (req, res) => {
-    res.json(`Tours Page`)
-})
+router.param('id', checkID)
 
-router.get('/:id', (req, res) => {
-    res.json(`The id for the tour selected ${req.params.id}`)
-})
+router.get('/', getTours)
+
+router.get('/:id', theTourId)
 
 module.exports = router

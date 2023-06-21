@@ -19,7 +19,4 @@ const userRouter = require('./routes/usersRouter')
 app.use('/tours', tourRouter)
 app.use('/users', userRouter)
 
-const port = 5000;
-app.listen(port, () => {
-    console.log(`app running on port ${port}`);
-})
+module.exports = app;
