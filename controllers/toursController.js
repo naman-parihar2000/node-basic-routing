@@ -8,8 +8,13 @@ exports.theTourId = (req, res) => {
     res.json(`The id for the tour selected ${req.params.id}`)
 }
 
-exports.checkID = (req,res,next,val) => {
+exports.checkID = (req, res, next, val) => {
     console.log(`If the ID is equal to: ${val}...`);
     console.log(`It would be great!`);
     next()
+}
+
+exports.checkTheValidity = (req, res, next) => {
+    console.log(`This checks the validity of the ID`);
+    console.log(`Can do other work too...`);
 }
