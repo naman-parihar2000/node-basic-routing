@@ -13,17 +13,11 @@ app.use(express.json())
 //     res.json(`hello ${name}`)
 // })
 
-const tourRouter = express.Router()
-
-tourRouter.get('/', (req, res) => {
-    res.json(`Tours Page`)
-})
-
-tourRouter.get('/:id', (req, res) => {
-    res.json(`The id for the tour selected ${req.params.id}`)
-})
+const tourRouter = require('./routes/toursRoute')
+const userRouter = require('./routes/usersRouter')
 
 app.use('/tours', tourRouter)
+app.use('/users', userRouter)
 
 const port = 5000;
 app.listen(port, () => {
