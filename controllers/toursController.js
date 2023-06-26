@@ -19,8 +19,19 @@ exports.getTours = async (req, res) => {
   }
 }
 
-exports.theTourId = (req, res) => {
-  res.json(`The id for the tour selected ${req.params.id}`)
+exports.theTourId = async (req, res) => {
+  try {
+    const tour = await Tour.findById(req.params.id);
+    res.status(200).json({
+      status: 'success',
+      tour
+    })
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err,
+    })
+  }
 }
 
 exports.checkID = (req, res, next, val) => {
